@@ -42,7 +42,8 @@ export default (editor, opts = {}) => {
         <div class="gjs-block-label">
           Button 
         </div>
-        ${iconStyle}
+       
+       
     `,
     content : `
       <button class="button-26" role="button">Button</button>
