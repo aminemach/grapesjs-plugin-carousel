@@ -13,8 +13,6 @@ export default (editor, config = {}) => {
                     <!-- Indicators -->
                     <ol class="carousel-indicators" data-type="${config.prefixName}-indicators">
                         <li data-target="#" data-slide-to="0" class="active"></li>
-                        <li data-target="#" data-slide-to="1"></li>
-                        <li data-target="#" data-slide-to="2"></li>
                     </ol>
 
                     <!-- Wrapper for slides -->
@@ -25,18 +23,7 @@ export default (editor, config = {}) => {
                                Slide 1
                             </div>
                         </div>
-                        <div class="item">
-                            <img src="${slideImgTwo}" alt="..." />
-                            <div class="carousel-caption">
-                                Slide 2
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="${slideImgThree}" alt="..." />
-                            <div class="carousel-caption">
-                                Slide 3
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <!-- Controls -->
