@@ -5,66 +5,7 @@ export const
 
     return ` <style>
 
-              .carouselContainer {
-  width: 60%;
-  height: 90%;
-  margin: 0 auto;
-  position: relative;
-  background-color: #fff;
-  border-radius: 1.5rem;
-  overflow: hidden;
-}
-
-.carouselImgs {
-  width: 100%;
-  height: 100%;
-  animation: fade 1.5s;
-  display: none;
-  padding: 20px;
-  text-align: center;
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 49%;
-  cursor: pointer
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.slide1 {
-  background-color: #d8e2dc
-}
-
-.slide2 {
-  background-color: #577399
-}
-
-.slide3 {
-  background-color: #bdd5ea;
-}
-
-.slide4 {
-  background-color: #f7f7ff;
-}
+              .mySlides {display:none;}
              </style>
             
     `
