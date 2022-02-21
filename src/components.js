@@ -40,7 +40,7 @@ window.onload = function () {
       },
     },
     isComponent: (el) => {
-      if (el.className && el.className.includes("swiper")) {
+      if (el.className && el.className.includes("carouselContainer")) {
         return {
           type: 'carousel',
         };
