@@ -1,19 +1,29 @@
-import base from './components/base';
-import indicator from './components/indictor';
-import slide from './components/slide';
-import control from './components/control';
-import carousel from './components/carousel';
-// mpg gallery
-import mpgGallery from './components/mpg';
+export default (editor, opts = {}) => {
+  const domc = editor.DomComponents;
 
-export default (editor, config = {}) => {
-    
-    base(editor, config);
-    indicator(editor, config);
-    slide(editor, config);
-    control(editor, config);
-    carousel(editor, config);
-    
-    // MPG Gallery
-    mpgGallery(editor, config);
-}
+  domc.addType('carousel', {
+    model: {
+      defaults: {
+          script : function() {
+               new Swiper(".mySwiper", {
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+
+                  
+                },
+              });
+          }
+      },
+    },
+    isComponent: (el) => {
+      if (el.className && el.className.includes("swiper")) {
+        return {
+          type: 'carousel',
+        };
+      }
+    },
+  });
+
+  
+};
