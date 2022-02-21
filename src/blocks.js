@@ -21,24 +21,15 @@ export default (editor, opts = {}) => {
 
     `,
     content : ` 
-            <div class="carouselContainer">
-      <div class="carouselImgs slide1">
-        <img src="#" alt=""/>
-      </div>
-      <div class="carouselImgs slide2">
-        <img src="#" alt=""/>
-      </div>
-      <div class="carouselImgs slide3">
-        <img src="#" alt=""/>
-      </div>
-      <div class="carouselImgs slide4">
-        <img src="#" alt=""/>
-      </div>
-      <span class="prev" id="prev">
-        < </span>
-          <span class="next" id="next">
-            > </span>
-    </div>
+           <div class="w3-content w3-display-container">
+  <img class="mySlides" src="#" style="width:100%">
+  <img class="mySlides" src="#" style="width:100%">
+  <img class="mySlides" src="#" style="width:100%">
+  <img class="mySlides" src="#" style="width:100%">
+
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
 
 
           ${carouselStyle}
