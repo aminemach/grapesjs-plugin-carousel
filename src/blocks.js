@@ -21,8 +21,7 @@ export default (editor, opts = {}) => {
 
     `,
     content : ` 
-             <div class="container">
-    <div class="carouselContainer">
+            <div class="carouselContainer">
       <div class="carouselImgs slide1">
         <h1>Slide1</h1>
       </div>
@@ -40,7 +39,6 @@ export default (editor, opts = {}) => {
           <span class="next" id="next">
             > </span>
     </div>
-  </div>
 
 
           ${CarouselStyle}
