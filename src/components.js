@@ -27,7 +27,7 @@ function showDivs(n) {
       },
 
     isComponent: (el) => {
-      if (el.className && el.className.includes("carouselContainer")) {
+      if (el.className && el.className.includes("mySlides")) {
         return {
           type: 'carousel',
         };
