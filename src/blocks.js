@@ -1,8 +1,8 @@
-import { SwiperStyle , buttonStyle  ,StaticTableStyle ,CardProductStyle ,PricingTableStyle} from "./consts";
+import { carouselstyle , buttonStyle  ,StaticTableStyle ,CardProductStyle ,PricingTableStyle} from "./consts";
 
 export default (editor, opts = {}) => {
   const bm = editor.BlockManager;
-  const CarouselStyle = SwiperStyle();
+  const carouselStyle = carouselstyle();
   const ButtonStyle = buttonStyle();
   const staticTableStyle = StaticTableStyle();
   const cardProductStyle = CardProductStyle();
@@ -23,16 +23,16 @@ export default (editor, opts = {}) => {
     content : ` 
             <div class="carouselContainer">
       <div class="carouselImgs slide1">
-        <h1>Slide1</h1>
+        <img src="#" alt=""/>
       </div>
       <div class="carouselImgs slide2">
-        <h1>Slide2</h1>
+        <img src="#" alt=""/>
       </div>
       <div class="carouselImgs slide3">
-        <h1>Slide3</h1>
+        <img src="#" alt=""/>
       </div>
       <div class="carouselImgs slide4">
-        <h1>Slide4</h1>
+        <img src="#" alt=""/>
       </div>
       <span class="prev" id="prev">
         < </span>
@@ -41,7 +41,7 @@ export default (editor, opts = {}) => {
     </div>
 
 
-          ${CarouselStyle}
+          ${carouselStyle}
     `,
   });
 
