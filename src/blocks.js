@@ -21,15 +21,27 @@ export default (editor, opts = {}) => {
 
     `,
     content : ` 
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper">
-                  <div class="swiper-slide"> <img src="#" /> </div>
-                  <div class="swiper-slide"> <img src="#" /> </div>
-                  <div class="swiper-slide"> <img src="#" /> </div>
-              </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-          </div>
+             <div class="container">
+    <div class="carouselContainer">
+      <div class="carouselImgs slide1">
+        <h1>Slide1</h1>
+      </div>
+      <div class="carouselImgs slide2">
+        <h1>Slide2</h1>
+      </div>
+      <div class="carouselImgs slide3">
+        <h1>Slide3</h1>
+      </div>
+      <div class="carouselImgs slide4">
+        <h1>Slide4</h1>
+      </div>
+      <span class="prev" id="prev">
+        < </span>
+          <span class="next" id="next">
+            > </span>
+    </div>
+  </div>
+
 
           ${CarouselStyle}
     `,
