@@ -5,37 +5,24 @@ export default (editor, opts = {}) => {
     model: {
       defaults: {
           script : function() {
-              var currentSlide = 1;
+              var slideIndex = 1;
+showDivs(slideIndex);
 
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
 
-function showSlide(slideIndex) {
-  const slides = document.getElementsByClassName('carouselImgs');
-  if (slideIndex > slides.length) { currentSlide = 1 }
-  if (slideIndex < 1) { currentSlide = slides.length }
-  for (var i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none'
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
   }
-  slides[currentSlide - 1].style.display = 'flex'
+  x[slideIndex-1].style.display = "block";  
 }
-
-
-function nextSlide() {
-  showSlide(currentSlide += 1);
-}
-
-function previousSlide() {
-  showSlide(currentSlide -= 1);
-}
-
-window.onload = function () {
-  showSlide(currentSlide);
-  document.getElementById('prev').addEventListener('click', function () {
-    previousSlide();
-  })
-  document.getElementById('next').addEventListener('click', function () {
-    nextSlide();
-  })
-}
+        }
           }
       },
     },
