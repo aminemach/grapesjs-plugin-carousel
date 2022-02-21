@@ -1,10 +1,9 @@
-import { SwiperStyle , buttonStyle , IconStyle ,StaticTableStyle ,CardProductStyle ,PricingTableStyle} from "./consts";
+import { SwiperStyle , buttonStyle  ,StaticTableStyle ,CardProductStyle ,PricingTableStyle} from "./consts";
 
 export default (editor, opts = {}) => {
   const bm = editor.BlockManager;
   const CarouselStyle = SwiperStyle();
   const ButtonStyle = buttonStyle();
-  const iconStyle = IconStyle();
   const staticTableStyle = StaticTableStyle();
   const cardProductStyle = CardProductStyle();
   const pricingTableStyle = PricingTableStyle();
@@ -20,7 +19,6 @@ export default (editor, opts = {}) => {
                 Carousel
             </div> 
 
-            ${iconStyle}
     `,
     content : ` 
             <div class="swiper mySwiper">
