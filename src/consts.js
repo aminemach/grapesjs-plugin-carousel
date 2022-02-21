@@ -5,38 +5,66 @@ export const
 
     return ` <style>
 
-                .swiper {
-                    width: 100%;
-                    height: 80%;
-                }
+              .carouselContainer {
+  width: 60%;
+  height: 90%;
+  margin: 0 auto;
+  position: relative;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
 
-                .swiper-slide {
-                    text-align: center;
-                    font-size: 18px;
-                    background: #fff;
+.carouselImgs {
+  width: 100%;
+  height: 100%;
+  animation: fade 1.5s;
+  display: none;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
 
-                    /* Center slide text vertically */
-                    display: -webkit-box;
-                    display: -ms-flexbox;
-                    display: -webkit-flex;
-                    display: flex;
-                    -webkit-box-pack: center;
-                    -ms-flex-pack: center;
-                    -webkit-justify-content: center;
-                    justify-content: center;
-                    -webkit-box-align: center;
-                    -ms-flex-align: center;
-                    -webkit-align-items: center;
-                    align-items: center;
-                }
+.prev, .next {
+  position: absolute;
+  top: 49%;
+  cursor: pointer
+}
 
-                .swiper-slide img {
-                    display: block;
-                    width: 480px;
-                    height: 500px;
-                    object-fit: cover;
-                }
+.prev {
+  left: 10px;
+}
 
+.next {
+  right: 10px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide1 {
+  background-color: #d8e2dc
+}
+
+.slide2 {
+  background-color: #577399
+}
+
+.slide3 {
+  background-color: #bdd5ea;
+}
+
+.slide4 {
+  background-color: #f7f7ff;
+}
              </style>
             
     `
