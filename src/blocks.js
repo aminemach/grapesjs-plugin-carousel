@@ -1,71 +1,204 @@
-import {slideImgOne, slideImgTwo, slideImgThree, styleGen} from './consts';
+import { SwiperStyle , buttonStyle , IconStyle ,StaticTableStyle ,CardProductStyle ,PricingTableStyle} from "./consts";
 
-export default (editor, config = {}) => {
-    const blockManager = editor.BlockManager;
-    
-    const style = styleGen(config.prefixName);
-    
-    blockManager.add(`${config.prefixName}-carousel`, {
-        label: `Carousel`,
-        category: config.gridsCategory,
-        content: `
-                <div class="${config.prefixName} carousel slide" data-ride="carousel" data-type="${config.prefixName}">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators" data-type="${config.prefixName}-indicators">
-                        <li data-target="#" data-slide-to="0" class="active"></li>
-                    </ol>
+export default (editor, opts = {}) => {
+  const bm = editor.BlockManager;
+  const CarouselStyle = SwiperStyle();
+  const ButtonStyle = buttonStyle();
+  const iconStyle = IconStyle();
+  const staticTableStyle = StaticTableStyle();
+  const cardProductStyle = CardProductStyle();
+  const pricingTableStyle = PricingTableStyle();
+  
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox" data-type="${config.prefixName}-slides">
-                        <div class="item active">
-                            <img src="${slideImgOne}" alt="..." />
-                            <div class="carousel-caption"> 
-                               Slide 1
-                            </div>
-                        </div>
-                        
-                    </div>
 
-                    <!-- Controls -->
-                    <a class="${config.prefixName} left carousel-control" href="#" role="button" data-slide="prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5" style="position: absolute;top: 40%;z-index: 5; left: 40%;">
-                        <g><path fill="#2E435A" d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/></g>
-                        </svg>
-                    </a>
-                    <a class="${config.prefixName} right carousel-control" href="#" role="button" data-slide="next">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5" style="position: absolute;top: 40%;z-index: 5; right: 40%;">
-                        <g><path fill="#2E435A" d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"/></g>
-                        </svg>
-                    </a>
-                </div>
+
+
+  bm.add("carousel" , {
+    label : ` 
+            <i class="fa fa-exchange" ></i>
+            <div class="gjs-block-label">
+                Carousel
+            </div> 
+
+            ${iconStyle}
+    `,
+    content : ` 
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide"> <img src="#" /> </div>
+                  <div class="swiper-slide"> <img src="#" /> </div>
+                  <div class="swiper-slide"> <img src="#" /> </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+          </div>
+
+          ${CarouselStyle}
+    `,
+  });
+
+  bm.add("button" , {
+
+    label : ` 
+    <i class="fa fa-cube"></i>
+        <div class="gjs-block-label">
+          Button 
+        </div>
+        ${iconStyle}
+    `,
+    content : `
+      <button class="button-26" role="button">Button</button>
+      ${ButtonStyle}
+    `
+  });
+
+  bm.add("image" , {
+    label : `
+        <i class="fa fa-image"></i>
+        <div class="gjs-block-label">Image</div>
+    `, 
+    content :  `
+        <img src="#" width="500px" height="500px" />
+    `
+  }); 
+
+
+  bm.add("table-dynamic" , {
+    label:`
+      <i class="fa fa-table"></i>
+      <div class="gjs-block-label">Table Dynamic</div>
+      `,
+    content : `
+        <div id="myDynamicTable">
+          <input type="button" id="create" value="Click here" onclick="Javascript:addTable()">
+        </div>
+    `
+  });
+
+
+  bm.add("table-static" , {
+      label:` 
+        <i class="fa fa-table"></i>
+        <div class="gjs-block-label">Table Static</div>      
+      `,
+
+      content : `
+          <table>
+            <caption>Statement Summary </caption>
+            <thead>
+              <tr>
+                <th scope="col">Account</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Ammount</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Account">Visa - 3412</td>
+                    <td data-label="Due Date">04/01/2016</td>
+                    <td data-label="Amount">$1,190</td>
+                    <td data-label="Period">03/01/2016 - 03/31/2016</td>
+                </tr>
+                <tr>
+                    <td scope="row" data-label="Account">Visa - 6076</td>
+                    <td data-label="Due Date">03/01/2016</td>
+                    <td data-label="Amount">$2,443</td>
+                    <td data-label="Period">02/01/2016 - 02/29/2016</td>
+                </tr>
+                <tr>
+                    <td scope="row" data-label="Account">Corporate AMEX</td>
+                    <td data-label="Due Date">03/01/2016</td>
+                    <td data-label="Amount">$1,181</td>
+                    <td data-label="Period">02/01/2016 - 02/29/2016</td>
+                </tr>
+            </tbody>
+          
+          </table>
+
+          ${staticTableStyle}
+      `
+  });
+
+  bm.add("product-card" , {
+    label : `
+      <i class="fa fa-credit-card"></i>
+      <div class="gjs-block-label">Product Card</div>
+    `,
+    content : `
+            <div class="wrapper">
+            <div class="product-img">
+              <img src="http://bit.ly/2tMBBTd" height="420" width="327">
             </div>
-            ${style}
-            `,
-        attributes: {class: 'fa fa-sliders'}
-    });
-    
-    /*Material Photo Gallery*/
-    blockManager.add(`${config.prefixName}-mpg`, {
-        label: `Material Photo Gallery`,
-        category: config.gridsCategory,
-        content: `
-                <div class="${config.prefixName}-m-p-g" data-type="mpg-gallery" style="display: block;overflow: auto;">
-			<div class="m-p-g__thumbs" data-google-image-layout data-max-height="350" style="display: block;overflow: auto;">
-				<img src="http://unsplash.it/600/400?image=940" data-full="http://unsplash.it/1200/800?image=940" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/640/450?image=906" data-full="http://unsplash.it/1280/900?image=906" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/550/420?image=885" data-full="http://unsplash.it/1100/840?image=885" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/650/450?image=823" data-full="http://unsplash.it/1300/900?image=823" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/600/350?image=815" data-full="http://unsplash.it/1200/700?image=815" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/560/500?image=677" data-full="http://unsplash.it/1120/1000?image=677" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/600/400?image=940" data-full="http://unsplash.it/1200/800?image=940" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/670/410?image=401" data-full="http://unsplash.it/1340/820?image=401" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/620/340?image=623" data-full="http://unsplash.it/1240/680?image=623" class="m-p-g__thumbs-img" />
-				<img src="http://unsplash.it/790/390?image=339" data-full="http://unsplash.it/1580/780?image=339" class="m-p-g__thumbs-img" />
-			</div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>Harvest Vase</h1>
+                <h2>by studio and friends</h2>
+                <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br> functional objects. The surfaces<br> appear to be sliced and pulled aside,<br> allowing room for growth. </p>
+              </div>
+              <div class="product-price-btn">
+                <p><span>78</span>$</p>
+                <button type="button">buy now</button>
+              </div>
+            </div>
+          </div>
 
-			<div class="m-p-g__fullscreen"></div>
-		</div>
-            `,
-        attributes: {class: 'fa fa-th-large'}
-    });
+      ${cardProductStyle}
+    `
+  });
+  
+  bm.add("pricing-table" , {
+    label : ` 
+      <i class="fa fa-table" ></i>
+      <div class="gjp-block-lable">
+          Pricing Table
+      </div>
+    `,
+    content:` 
+       <h2 style="text-align:center">Pricing Table</h2>
+       <div class="columns">
+          <ul class="price">
+              <li class="header">Basic</li>
+              <li class="grey">$9.99 / year</li>
+              <li>10GB Storage</li>
+              <li>10 Emails</li>
+              <li>10 Domaine </li>
+              <li>1GB Bandwidth</li>
+              <li class="grey"><a href="#" class="button">Sign Up</a></li>
+          </ul>
+       </div>
+
+
+       <div class="columns">
+          <ul class="price">
+              <li class="header" style="background-color:#04AA6D">Pro</li>
+              <li class="grey">$15.99 / year</li>
+              <li>20GB Storage</li>
+              <li>20 Emails</li>
+              <li>20 Domaine </li>
+              <li>2GB Bandwidth</li>
+              <li class="grey"><a href="#" class="button">Sign Up</a></li>
+          </ul>
+       </div>
+
+       <div class="columns">
+       <ul class="price">
+           <li class="header">Premium</li>
+           <li class="grey">$23.3 / year</li>
+           <li>40GB Storage</li>
+           <li>40 Emails</li>
+           <li>40 Domaine </li>
+           <li>3GB Bandwidth</li>
+           <li class="grey"><a href="#" class="button">Sign Up</a></li>
+       </ul>
+    </div>
+    ${pricingTableStyle} 
+    `
+  });
+
+ 
+
+
+
+ 
+
 }
