@@ -39,7 +39,7 @@ export default (editor, opts = {}) => {
   bm.add("carousel"
  , {
     label : `
-        <i class="fa fa-echange"></i>
+        <i class="fa fa-exchange"></i>
         <div class="gjs-block-label">Carousel</div>
     `,
     content : ` 
